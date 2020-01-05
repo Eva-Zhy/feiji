@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>强悍内芯大作战</title>
+    <link rel="stylesheet" href="css/main.css?=2">
+</head>
+<body>
+<audio src="music/bg.mp3" id="bg" loop="loop"></audio>
+<audio src="music/diachi.mp3" id="diachi"></audio>
+<audio src="music/lengdong.mp3" id="lengdong"></audio>
+<audio src="music/zj.mp3" id="zj"></audio>
+<audio src="music/quankai.mp3" id="quankai"></audio>
+    <div id="daoju1_1" class="daojutu">
+        <img  style="width: 100%;height: 100%;" src="./image/ren3.png">
+    </div>
+    <div id="daoju2_2" class="daojutu">
+        <img  style="width: 100%;height: 100%;" src="./image/ren2.png">
+    </div>
+    <div id="daoju3_3" class="daojutu">
+        <img  style="width: 100%;height: 100%;" src="./image/ren1.png">
+    </div>
+
+    <div class="loading_img" id="loading">
+        <div class="loading_num">0%</div>
+        <img id="num1" class="num loading_img" style="display: none;" src="image/3.png">
+        <img id="num2" class="num loading_img" style="display: none;" src="image/2.png">
+        <img id="num3" class="num loading_img" style="display: none;" src="image/1.png">
+        <img class="djs loading_img" style="display: none;" src="image/djs.png">
+    </div>
+    <div id="contentdiv">
+        <div style="display: none;" id="startdiv">
+            <button onclick="begin()">开始游戏</button>
+        </div>
+        <div id="maindiv">
+            <img id="j1" src="./image/j1.png">
+            <img id="j2" src="./image/j2.png">
+            <img id="j3" src="./image/j3.png">
+            <img id="j4" src="./image/j4.png">
+            <div id="scorediv">
+                <label>分数：</label>
+                <label id="label">0</label>
+            </div>
+            <div id="smdiv">
+                <label>生命：</label>
+                <label id="label2">1</label>
+            </div>
+            <div id="suspenddiv">
+                <button>继续</button><br/>
+                <button>重新开始</button><br/>
+                <button>回到主页</button>
+            </div>
+            <div id="enddiv">
+                <div id="endbg">
+                    <img class="game_t1" src="./image/game_t1.png" />
+                    <div id="planscore">0</div>
+                    <img id="phb" class="game_btn2" src="./image/game_btn2.png">
+                    <img id="fx" class="game_btn2" style="top: 200px;" src="./image/share.png">
+                    <img id="ty" class="game_btn2" style="top: 265px;" src="./image/game_btn1.png">
+                </div>
+                <!--<p class="plantext">飞机大战分数</p>-->
+                <!--<div><button onclick="jixu()">继续</button></div>-->
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jweixin.js"></script>
+    <script type="text/javascript" src="js/main.js?v=23"></script>
+<!--<script src="https://www.remmli.com/h5/js/jweixin-1.4.0.js"></script>-->
+    <script>
+        $(document).ready(function () {
+            audioAutoPlay();
+        });
+        function audioAutoPlay() {
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                bg.play();
+                bg.pause();
+                quankai.play();
+                quankai.pause();
+                lengdong.play();
+                lengdong.pause();
+                diachi.play();
+                diachi.pause();
+                zj.play();
+                zj.pause();
+            });
+        }
+    </script>
+</body>
+</html>
