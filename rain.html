@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>rain</title>
+
+	</head>
+	<script src="js/jquery.js"></script>
+	<body>
+		<div id="weibo">weibo</div>
+		<div id="twitter">twitter</div>
+		<div id="facebook">facebook</div>
+	</body>
+<script>
+	$("#weibo").click(function () {
+		window.open("http://service.weibo.com/share/share.php?title=要分享的标题&url="+encodeURIComponent("https://www.baidu.com"))
+	})
+
+	$("#twitter").click(function () {
+		window.open("https://twitter.com/intent/tweet?text=要分享的标题&url="+encodeURIComponent("https://www.baidu.com"))
+	})
+
+	$("#facebook").click(function () {
+		window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent("https://www.baidu.com"))
+	})
+
+</script>
+</html>

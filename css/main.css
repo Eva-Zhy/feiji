@@ -31,7 +31,7 @@ body,html{
 #startdiv{
     width: 100%;
     height: 100%;
-    background: url(../image/bg.jpg) center no-repeat;
+    background: url(../img/gamebj.jpg) center no-repeat;
     background-size:cover;
 }
 button{
@@ -49,16 +49,169 @@ button{
     transform:translate(-50%,0);
 }
 
+.loading_bar{
+    width: 30rem;
+    height: 0.4rem;
+    position: absolute;
+    bottom:4.5rem;
+    left: 5rem;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.loading_bar2{
+    width: 26rem;
+    height: 0.3rem;
+    position: absolute;
+    bottom:11.5rem;
+    left: 7rem;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.bar-v {
+    width: 0%;
+    height: 100%;
+    background-image: linear-gradient(to right,#1dbff0, #e1f5fe);
+    /*background-color: #b158fd;*/
+    border-radius: 20px;
+    display: block;
+}
+.bar-v2 {
+    width: 0%;
+    height: 100%;
+    background-image: linear-gradient(to right,#1dbff0, #e1f5fe);
+    /*background-color: #b158fd;*/
+    border-radius: 20px;
+    display: block;
+}
+
+.car1{
+    width: 10rem;
+    position: absolute;
+    bottom: 4rem;
+    left: 3.8rem;
+}
+
+.yiny{
+    width: 40rem;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0rem;
+    z-index: 2;
+}
+
 #loading{
     width: 100%;
     height: 100%;
-    background:url(../image/loading_bg.jpg) center no-repeat;
+    background:url(../img/bj.jpg) center no-repeat;
     position: absolute;
     z-index: 999;
     background-size:cover;
     display: block;
 }
+.start_game {
+        width: 100%;
+        height: 100%;
+        /*background:url(../img/bj.jpg) center no-repeat;*/
+        position: absolute;
+        z-index: 999;
+        background-color: #000;
+        /*background-size:cover;*/
+        display: none;
+}
+.gezi{
+    width: 40rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.logo{
+    width: 18rem;
+    position: absolute;
+    left: 11rem;
+    top: 8rem;
+    z-index: 2;
+}
+.guang{
+    width: 40rem;
+    position: absolute;
+    left: 0;
+    bottom: 23rem;
+    opacity: 0.3;
+    z-index: 1;
+}
+.car2{
+    width: 40rem;
+    position: absolute;
+    left: 0;
+    bottom: 15rem;
+    opacity: 1;
+    z-index: 3;
+}
+.car3{
+    width: 40rem;
+    position: absolute;
+    left: 0;
+    bottom: 15rem;
+    opacity: 0;
+    z-index: 3;
+}
+.gogo{
+    width: 10rem;
+    position: absolute;
+    left: 15rem;
+    bottom: 6rem;
+    opacity: 0;
+    z-index: 99;
+    display: none;
+}
+#animat{
+    animation:mymove 5s infinite;
+    -webkit-animation:mymove 5s infinite; /*Safari and Chrome*/
+    animation-direction:alternate;/*轮流反向播放动画。*/
+    animation-timing-function: ease-in-out; /*动画的速度曲线*/
+    /* Safari 和 Chrome */
+    -webkit-animation:mymove 5s infinite;
+    -webkit-animation-direction:alternate;/*轮流反向播放动画。*/
+    -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+}
+@keyframes mymove
+{
+    0%{
+        transform: scale(1);  /*开始为原始大小*/
+    }
+    25%{
+        transform: scale(1.1); /*放大1.1倍*/
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.1);
+    }
 
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+    0%{
+        transform: scale(1);  /*开始为原始大小*/
+    }
+    25%{
+        transform: scale(1.1); /*放大1.1倍*/
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.1);
+    }
+}
 .num {
     width: 50%;
     position: absolute;
@@ -110,10 +263,19 @@ button{
     bottom:150px;
 }
 
+#red{
+    position: absolute;
+    bottom: 0;
+    height: 206px;
+    width: 100%;
+    left:0;
+    z-index: 2;
+}
+
 #maindiv{
     width: 100%;
     height: 100%;
-    background:url(../image/bg.jpg) center no-repeat;
+    background:url(../img/gamebj.jpg) center no-repeat;
     background-size:cover;
     display: none;
     position: absolute;
@@ -190,16 +352,18 @@ button{
     z-index: 99;
 }
 .loading_num{
-    width: 300px;
+    width: 40rem;
     height: 50px;
     text-align: center;
     color: #fff;
-    font-size: 25px;
+    font-size: 13px;
     line-height: 50px;
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-150px,-25px);
+    z-index: 99;
+    /* top: 50%; */
+    left: 0;
+    /* left: 50%; */
+    bottom: 0.5rem;
 }
 #endbg{
     position: absolute;

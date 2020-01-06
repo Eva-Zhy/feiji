@@ -9,8 +9,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>强悍内芯大作战</title>
     <link rel="stylesheet" href="css/main.css?=2">
+    <script type="text/javascript" src="js/layout.js?v=23"></script>
 </head>
 <body>
+<script src="js/rain.js"></script>
 <audio src="music/bg.mp3" id="bg" loop="loop"></audio>
 <audio src="music/diachi.mp3" id="diachi"></audio>
 <audio src="music/lengdong.mp3" id="lengdong"></audio>
@@ -28,20 +30,39 @@
 
     <div class="loading_img" id="loading">
         <div class="loading_num">0%</div>
-        <img id="num1" class="num loading_img" style="display: none;" src="image/3.png">
-        <img id="num2" class="num loading_img" style="display: none;" src="image/2.png">
-        <img id="num3" class="num loading_img" style="display: none;" src="image/1.png">
-        <img class="djs loading_img" style="display: none;" src="image/djs.png">
+        <img class="car1" src="img/car1.png">
+
+        <div class="loading_bar">
+            <div class="bar-v"></div>
+        </div>
+        <img class="yiny" src="img/yiny.png">
+
+<!--        <img id="num1" class="num loading_img" style="display: none;" src="image/3.png">-->
+<!--        <img id="num2" class="num loading_img" style="display: none;" src="image/2.png">-->
+<!--        <img id="num3" class="num loading_img" style="display: none;" src="image/1.png">-->
+<!--        <img class="djs loading_img" style="display: none;" src="image/djs.png">-->
+    </div>
+    <div class="start_game">
+        <img class="gezi" src="img/gezi.png">
+        <img class="guang" src="img/guang.png">
+        <img class="logo" src="img/logo.png">
+        <img class="car2" src="img/car2.png">
+        <img class="car3" src="img/car3.png">
+        <img class="gogo" id="animat" src="img/START.png">
+        <div class="loading_bar2">
+            <div class="bar-v2"></div>
+        </div>
     </div>
     <div id="contentdiv">
         <div style="display: none;" id="startdiv">
             <button onclick="begin()">开始游戏</button>
         </div>
         <div id="maindiv">
-            <img id="j1" src="./image/j1.png">
-            <img id="j2" src="./image/j2.png">
-            <img id="j3" src="./image/j3.png">
-            <img id="j4" src="./image/j4.png">
+            <img id="red" src="./img/red.png">
+            <img style="display: none;" id="j1" src="./image/j1.png">
+            <img style="display: none;" id="j2" src="./image/j2.png">
+            <img style="display: none;" id="j3" src="./image/j3.png">
+            <img style="display: none;" id="j4" src="./image/j4.png">
             <div id="scorediv">
                 <label>分数：</label>
                 <label id="label">0</label>
