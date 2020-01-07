@@ -23,20 +23,17 @@ function GetQueryString(name) {
     return null;
 }
 
-function getClientHeight()
-{
-    var clientHeight=0;
-    if(document.body.clientHeight&&document.documentElement.clientHeight)
-    {
-        var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-    }
-    else
-    {
-        var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+function getClientHeight() {
+    var clientHeight = 0;
+    if (document.body.clientHeight && document.documentElement.clientHeight) {
+        var clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+    } else {
+        var clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
     }
     return clientHeight;
 }
-console.log("height",getClientHeight());
+
+console.log("height", getClientHeight());
 if (ces) {
     loading();
 } else {
@@ -90,8 +87,8 @@ function loading() {
             // audioAutoPlay();
             setTimeout(function () {
 
-                $("#loading").css("display","none");
-                $(".start_game").css("display","block");
+                $("#loading").css("display", "none");
+                $(".start_game").css("display", "block");
                 startGo()
                 // $(".loading_num").css("display","none");
                 // $("#num1").css("display","block");
@@ -109,15 +106,15 @@ function loading() {
                 // },1000);
             }, 500);
         }
-    // }, 50);
-    }, 10);
+        }, 50);
+    // }, 10);
 }
 
 function startGo() {
     $('.bar-v2').animate({"width": '100%'}, 3000, function () {
         $('.bar-v2').animate({"opacity": '0'}, 1000, function () {
-            $(".loading_bar2").css("display","none");
-            $(".gogo").css("display","block");
+            $(".loading_bar2").css("display", "none");
+            $(".gogo").css("display", "block");
 
             $('.gogo').animate({"opacity": '1'}, 1000, function () {
                 $('.guang').animate({"opacity": '1'}, 1000, function () {
@@ -126,7 +123,7 @@ function startGo() {
                 });
 
                 $('.gogo').click(function () {
-                    $(".start_game").css("display","none");
+                    $(".start_game").css("display", "none");
                     begin();
                 });
             })
@@ -189,11 +186,13 @@ function plan(hp, X, Y, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc)
     移动行为
          */
     this.planmove = function () {
-        if (scores > 20) {
-            var sudu_value = this.imagenode.offsetTop + this.plansudu - jianshu;
-        } else {
-            var sudu_value = this.imagenode.offsetTop + this.plansudu;
-        }
+        // if (scores > 20) {
+        //     var sudu_value = this.imagenode.offsetTop + this.plansudu - jianshu;
+        // } else {
+        //     var sudu_value = this.imagenode.offsetTop + this.plansudu;
+        // }
+
+        var sudu_value = this.imagenode.offsetTop + this.plansudu;
         this.imagenode.style.top = sudu_value + "px";
         //
         // if (scores <= 20) {
@@ -274,6 +273,25 @@ function oddbullet(X, Y) {
     //bullet.call(this,X,Y,6,14,"image/bullet1.png");
 }
 
+function deleteImg(id,top,left) {
+    let img_str = '<img id="' + id + '" style="left: ' + left
+        + ';top:' + top
+        + ';" src="./img/boom/0.png">';
+    $("#maindiv").append(img_str);
+    let i = 1;
+    let ani_boom = setInterval(function () {
+        $("#" + id).attr("src","./img/boom/"+i+".png");
+        i++;
+        if (i == 10) {
+            clearInterval(ani_boom);
+            console.log(ani_boom)
+            $("#" + id).remove();
+        }
+    },50);
+
+
+}
+
 /*
 创建敌机类
  */
@@ -310,7 +328,7 @@ function ourplan(X, Y) {
 
 var dW = $('body').width();
 var dH = $('body').height();
-var selfplan = new ourplan(dW / 2 - 62, dH * 0.75 +10);
+var selfplan = new ourplan(dW / 2 - 62, dH * 0.75 + 10);
 //移动事件
 var ourPlan = document.getElementById('ourplan');
 
@@ -341,7 +359,7 @@ var yidong = function () {
         this.addEventListener('touchmove', function (ev) {
             ev.preventDefault();
             var ev = ev.touches[0];
-            if (ev.pageY - 41 > (getClientHeight()-206)) {
+            if (ev.pageY - 41 > (getClientHeight() - 206)) {
                 ourPlan.style.top = (ev.pageY - 41) + 'px';
             }
             ourPlan.style.left = (ev.pageX - 33) + 'px';
@@ -505,7 +523,7 @@ function start() {
         //中飞机
         if (mark1 % 5 == 0) {
             // hp, a, b, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc
-            enemys.push(new enemy(1 + xueliang, 25, 274, 80, 80, 1, 360, random(1, 3) + 3, "image/小飞机爆炸.gif", "img/guai2.gif"));
+            enemys.push(new enemy(1 + xueliang, 25, 274, 80, 80, 1, 360, random(1, 3) + 3, "img/feiji1_boom.png", "img/guai2.gif"));
         }
         //大飞机
         if (mark1 == 20) {
@@ -514,7 +532,7 @@ function start() {
         }
         //小飞机
         else {
-            enemys.push(new enemy(1 + xueliang, 19, 286, 75, 77, 1, 360, random(1, 4)  + 3, "image/小飞机爆炸.gif", "img/guai1.gif"));
+            enemys.push(new enemy(1 + xueliang, 19, 286, 75, 77, 1, 360, random(1, 4) + 3, "img/feiji1_boom.png", "img/guai1.gif"));
         }
 
         //var add_prop = random(1,70);
@@ -660,6 +678,10 @@ function start() {
                             scorelabel.innerHTML = scores;
                             enemys[j].imagenode.src = enemys[j].planboomimage;
                             enemys[j].planisdie = true;
+                            let top = enemys[j].imagenode.style.top;
+                            let left = enemys[j].imagenode.style.left;
+                            let id = Math.random().toString(36).slice(-8);
+                            deleteImg(id,top,left);
                         }
                         //删除子弹
                         mainDiv.removeChild(bullets[k].bulletimage);
@@ -670,6 +692,7 @@ function start() {
                 }
             }
         }
+
         // 道具
         // for (var j = 0; j < propslen; j++) {
         //     //判断碰撞道具
@@ -815,15 +838,15 @@ function begin() {
     smdiv.style.display = "block";
     $("#label2").html(myhp);
 
-    Rain({
-        speed: [0,0], // 风速范围
-        hasBounce: false, // 是否有回弹效果
-        wind_direction: 250, // 风向
-        gravity: 7.0, // 重力
-        maxNum: 300, // 雨滴最大数量
-        numLevel: 5, // 每次生成雨滴数量
-        drop_chance: 0.4 // 下雨的概率
-    });
+    // Rain({
+    //     speed: [0, 0], // 风速范围
+    //     hasBounce: false, // 是否有回弹效果
+    //     wind_direction: 250, // 风向
+    //     gravity: 7.0, // 重力
+    //     maxNum: 300, // 雨滴最大数量
+    //     numLevel: 5, // 每次生成雨滴数量
+    //     drop_chance: 0.4 // 下雨的概率
+    // });
 
     /*
      调用开始函数
